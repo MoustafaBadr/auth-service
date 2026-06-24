@@ -1,48 +1,28 @@
-name: CI
+name: CI Pipeline
 
 on:
-  push:
-    branches: [main, development]
   pull_request:
-    branches: [main, development]
+    branches: [ "development", "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:8.4
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: auth_db
-          MYSQL_USER: app
-          MYSQL_PASSWORD: app123
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping -h localhost" --health-interval=10s --health-timeout=5s --health-retries=5
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up JDK 21
+      - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 21
           distribution: temurin
-          cache: gradle
+          java-version: 21
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+      - name: Grant execute permission
+        run: chmod +x gradlew
 
-      - name: Check formatting
+      - name: Check formatting (Spotless)
         run: ./gradlew spotlessCheck
 
-      - name: Build and test
+      - name: Build project
         run: ./gradlew build
-        env:
-          SPRING_PROFILES_ACTIVE: local
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: auth_db
-          MYSQL_USER: app
-          MYSQL_PASSWORD: app123
