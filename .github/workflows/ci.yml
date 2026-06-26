@@ -36,8 +36,8 @@ jobs:
       - name: Check formatting (Spotless)
         run: ./gradlew spotlessCheck
 
-      - name: Run tests (skip for now)
-        run: echo "Skipping tests for now"
+      - name: Run tests
+        run: ./gradlew test
 
       - name: Build project
         run: ./gradlew clean build
