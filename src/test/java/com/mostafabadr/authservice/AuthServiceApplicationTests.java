@@ -1,4 +1,4 @@
-package com.mostafabadr.auth_service;
+package com.mostafabadr.authservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
