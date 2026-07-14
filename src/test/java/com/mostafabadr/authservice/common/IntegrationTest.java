@@ -9,6 +9,4 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Testcontainers
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-public abstract class IntegrationTest extends MySQLContainerHolder {
-
-}
+public abstract class IntegrationTest extends MySQLContainerHolder {}

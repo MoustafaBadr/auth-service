@@ -12,6 +12,4 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
 @Import(JpaAuditingConfig.class)
-public abstract class RepositoryIntegrationTest extends MySQLContainerHolder {
-
-}
+public abstract class RepositoryIntegrationTest extends MySQLContainerHolder {}
