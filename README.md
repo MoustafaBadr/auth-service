@@ -49,6 +49,22 @@ docker compose up -d
 * Production-Ready Configuration
 * Dockerized Infrastructure
 
+## Testing
+
+```bash
+# Run unit tests (excludes repository and integration tests)
+./gradlew unitTest
+
+# Run repository integration tests
+./gradlew repositoryTest
+
+# Run full integration tests
+./gradlew integrationTest
+
+# Run all tests (equivalent to ./gradlew test)
+./gradlew unitTest repositoryTest integrationTest
+```
+
 ## 📈 Project Status
 
 🚧 **Work in Progress**

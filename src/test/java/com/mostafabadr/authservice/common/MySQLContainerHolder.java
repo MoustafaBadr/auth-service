@@ -6,7 +6,7 @@ import org.testcontainers.containers.MySQLContainer;
 
 public abstract class MySQLContainerHolder {
 
-  private static final MySQLContainer<?> MYSQL = new MySQLContainer<>("mysql:8.4.6");
+  protected static final MySQLContainer<?> MYSQL = new MySQLContainer<>("mysql:8.4.6");
 
   static {
     MYSQL.start();
