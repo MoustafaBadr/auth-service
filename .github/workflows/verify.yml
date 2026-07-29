@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
       - uses: ./.github/actions/setup-java-gradle
 
       - name: Check code formatting
@@ -22,6 +24,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
       - uses: ./.github/actions/setup-java-gradle
 
       - name: Run unit tests
@@ -32,6 +36,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
       - uses: ./.github/actions/setup-java-gradle
 
       - name: Run repository tests
@@ -42,6 +48,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
       - uses: ./.github/actions/setup-java-gradle
 
       - name: Run integration tests
@@ -58,6 +66,8 @@ jobs:
       - integration-tests
 
     steps:
+      - uses: actions/checkout@v4
+
       - uses: ./.github/actions/setup-java-gradle
 
       - name: Assemble project
