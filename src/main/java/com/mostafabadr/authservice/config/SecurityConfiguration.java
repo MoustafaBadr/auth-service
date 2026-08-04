@@ -22,7 +22,11 @@ public class SecurityConfiguration {
     http.csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(
             auth ->
-                auth.requestMatchers("/api/v1/users/register")
+                auth.requestMatchers(
+                        "/api/v1/users/register",
+                        "/swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/swagger-ui.html")
                     .permitAll()
                     .anyRequest()
                     .authenticated());
